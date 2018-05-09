@@ -1,0 +1,15 @@
+GET http://localhost:80/api/v1/list
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/index.html
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+http://localhost:80/api/v1/list?keyword=undefin1ed22
+
+###
