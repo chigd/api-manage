@@ -1,6 +1,8 @@
 package com.admin.api.manage.controller;
 
-import org.springframework.stereotype.Controller;
+import com.admin.api.util.ResponseBuilder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
 
@@ -8,11 +10,11 @@ import org.springframework.stereotype.Controller;
  * @author: chigd
  * @date:2018/5/9 0:18
  */
-@Controller
+@RestController
 public class IndexController {
 
-	// @RequestMapping(value = "/")
-	// public String index() {
-	// 	return "/index";
-	// }
+	@GetMapping(value = "/ping")
+	public ResponseBuilder index() {
+		return ResponseBuilder.success("hellowrold3223");
+	}
 }

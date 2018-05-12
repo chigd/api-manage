@@ -3,13 +3,16 @@ package com.admin.api.manage.logic;
 import com.admin.api.entity.ApiInfo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ApiManageLogic {
 
 
-	List<ApiInfo> getApiList(String keyword);
+	List<ApiInfo> getApiList(Map<String,Object> params);
 
-	void insert(ApiInfo apiInfo);
+	int saveOrUpdate(ApiInfo apiInfo);
 
 	int update(ApiInfo apiInfo);
+
+	int delById(String id);
 }

@@ -1,4 +1,4 @@
-GET http://localhost:80/api/v1/list
+GET http://localhost:80/api/v1/list?pageNum=1&pageSize=2
 Accept: */*
 Cache-Control: no-cache
 

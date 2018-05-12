@@ -6,9 +6,10 @@ import com.admin.api.util.ResponseBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Map;
 
 /**
 
@@ -22,21 +23,29 @@ public class ApiManageController {
 	@Autowired
 	private ApiManageLogic apiManageLogic;
 
+	/**
+	 *
+	 * @param param keyword pageSize pageNum
+	 * @return
+	 */
 	@RequestMapping(value = "/list")
-	public ResponseBuilder method(String keyword) {
-		List<ApiInfo> apiList = apiManageLogic.getApiList(keyword);
-		return ResponseBuilder.success(apiList);
+	public ResponseBuilder method(@RequestParam Map<String,Object> params) {
+		return ResponseBuilder.success(apiManageLogic.getApiList(params));
 	}
 
 	@RequestMapping(value = "/save")
-	public ResponseBuilder insert(@RequestBody ApiInfo apiInfo) {
-		apiManageLogic.insert(apiInfo);
-		return ResponseBuilder.success();
+	public ResponseBuilder saveOrUpdate(@RequestBody ApiInfo apiInfo) {
+		return ResponseBuilder.success(apiManageLogic.saveOrUpdate(apiInfo));
 	}
+
 	@RequestMapping(value = "/update")
 	public ResponseBuilder update(@RequestBody ApiInfo apiInfo) {
-		int i = apiManageLogic.update(apiInfo);
-		return ResponseBuilder.success();
+		return ResponseBuilder.success(apiManageLogic.update(apiInfo));
+	}
+
+	@RequestMapping(value = "/delete")
+	public ResponseBuilder delById(String id) {
+		return ResponseBuilder.success(apiManageLogic.delById(id));
 	}
 
 

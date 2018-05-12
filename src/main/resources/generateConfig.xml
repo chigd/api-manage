@@ -55,7 +55,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="${jdbc.table.api_info}"></table>
+        <table tableName="${jdbc.table}"></table>
 
         <!-- <table schema="" tableName="sys_user"></table>
         <table schema="" tableName="sys_role"></table>
